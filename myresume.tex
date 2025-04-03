@@ -1,0 +1,275 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, 
+    top=2 cm, 
+    bottom=2 cm, 
+    left=2 cm, 
+    right=2 cm, 
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Aditya Vikram Mahanta - CV},
+    pdfauthor={Aditya Vikram Mahanta},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+% Ensure that generated pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+% Page style setup:
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0cm}
+
+% Custom footer:
+% \makeatletter
+% \let\ps@customFooterStyle\ps@plain
+% \patchcmd{\ps@customFooterStyle}{\thepage}{
+%     \color{gray}\textit{\small Aditya Vikram Mahanta - Page \thepage{} of \pageref*{LastPage}}
+% }{}{}
+% \makeatother
+% \pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3cm}{0.2cm}
+
+\renewcommand\labelitemi{$\circ$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2 cm}{0.2 cm}
+}{
+    \end{adjustwidth}
+}
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+% Save the original \href
+\let\hrefWithoutArrow\href
+% Redefine \href to add an icon
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+\begin{document}
+
+\placelastupdatedtext
+
+%-------------------------------------------
+% HEADER
+%-------------------------------------------
+\begin{header}
+    {\fontsize{24 pt}{24 pt}\selectfont \textbf{Aditya Vikram Mahanta}}
+
+    \vspace{0.3 cm}
+
+    \normalsize
+    \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}India}%
+    \kern 0.25 cm%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{mailto:adityavikrammahanta@gmail.com}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}adityavikrammahanta@gmail.com}}%
+    \kern 0.25 cm%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{tel:+91-8135076078}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}+91-8135076078}}%
+    \kern 0.25 cm%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/aditya-mahanta-10351a320/}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}Aditya Mahanta}}%
+    \kern 0.25 cm%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{https://github.com/aditya-vm-123}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}aditya-vm-123}}%
+\end{header}
+
+\vspace{0.2 cm}
+
+%-------------------------------------------
+% SKILLS
+%-------------------------------------------
+\section{Skills}
+\begin{onecolentry}
+    \textbf{Programming Languages:} Python, Java, C/C++, SQL
+\end{onecolentry}
+
+\vspace{0.10 cm}
+
+\begin{onecolentry}
+    \textbf{Web Technologies:} HTML, CSS, JavaScript, React.js
+\end{onecolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \textbf{Additional Skills:} AWS, ScikitLearn, PyTorch, Bash
+\end{onecolentry}
+
+%-------------------------------------------
+% EDUCATION
+%-------------------------------------------
+\section{Education}
+
+\begin{twocolentry}{\textit{September 2022 – Present}}
+    \textbf{Vellore Institute of Technology, Chennai}\\[0.07cm]
+    \textit{B.Tech in Computer Science Engineering}\\
+    \textit{Current CGPA: \textbf{9.24/10}}
+\end{twocolentry}
+
+\vspace{0.2 cm}
+
+\begin{twocolentry}{\textit{2020 – 2022}}
+    \textbf{Don Bosco School, Guwahati}\\[0.1cm]
+    \textit{CBSE Board}\\
+    \textit{10th Percentage:\quad \textbf{93.6\%}}\\
+    \textit{12th Percentage:\quad \textbf{94.2\%}}
+\end{twocolentry}
+
+%-------------------------------------------
+% EXPERIENCE
+%-------------------------------------------
+\section{Experience}
+
+\begin{twocolentry}{
+    \textit{Sept 2022 – Oct 2022}
+}
+    \textbf{Finlatics Business Analyst}\\
+    \textit{Finlatics}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Worked on data analysis as a Business Analyst at Finlatics.
+        \item Created visual reports using Power BI for various datasets.
+    \end{highlights}
+\end{onecolentry}
+
+%-------------------------------------------
+% PROJECTS
+%-------------------------------------------
+\section{Projects}
+
+\begin{twocolentry}{
+}
+    \textbf{Smart Activity Tracker}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Real-time watch that monitors a person's sleep and steps.
+        \item Built using Arduino and IoT.
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+\begin{twocolentry}{
+}
+    \textbf{Noise Pollution Detection System}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Arduino-based device to detect ambient noise levels and store them in a database.
+        \item Used Python for data analysis and visualization with Matplotlib.
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+\begin{twocolentry}{
+}
+    \textbf{Online Text Utility Application}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item An online text editing web app.
+        \item Built using React.js.
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+\begin{twocolentry}{
+}
+    \textbf{Vim-Based Text Editor in C}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Built a Vim-like text editor from scratch in C using the nCurses library.
+    \end{highlights}
+\end{onecolentry}
+
+%-------------------------------------------
+% CERTIFICATIONS
+%-------------------------------------------
+\section{Certifications}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item \textbf{SQL for Data Science} (Coursera)\vspace{0.15cm}
+        \item \textbf{AWS Cloud Practitioner} (AWS)\vspace{0.15cm}
+        \item \textbf{Complete AI \& Machine Learning, Data Science Bootcamp} (Udemy)\\
+        (NumPy, Pandas, Scikit-Learn, TensorFlow)
+    \end{highlights}
+\end{onecolentry}
+
+\end{document}
